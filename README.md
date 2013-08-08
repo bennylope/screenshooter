@@ -11,7 +11,11 @@ For now, clone the repository.
 Set up your credentials in the `.browserstack` file in your home
 directory. It should look like this:
 
-    username:auth_token 
+    username:auth_token
+    
+Your authentication token is available under the
+[automation section](https://www.browserstack.com/accounts/automate-keys)
+of your profile.
 
 Next you'll need a browser configuration file. This will be used to
 specify which browser versions under which operating systems to take
