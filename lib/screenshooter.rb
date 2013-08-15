@@ -2,6 +2,7 @@ require 'rubygems'
 require 'thor'
 require 'yaml'
 require 'launchy'
+require 'progress_bar'
 require 'screenshot'
 require "screenshooter/version"
 
@@ -40,10 +41,11 @@ module ScreenShooter
       end
 
       shot_status = "pending"
+      bar = ProgressBar.new(:elapsed)
       begin
         shot_status = client.screenshots_status request_id
-        print "."
-        sleep 2
+        sleep 2.5
+        bar.increment!
       end while options["wait"] and shot_status != "done"
 
       screenshots_url = "http://www.browserstack.com/screenshots/#{request_id}"
