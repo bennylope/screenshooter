@@ -4,7 +4,11 @@ A tool for generating BrowserStack screenshots from the command line.
 
 ## Installing
 
-For now, clone the repository.
+> gem install screenshooter
+
+Or clone the repository and run
+
+> rake install
 
 ## Configuration
 
@@ -40,3 +44,6 @@ command.
 The command accepts an optional boolean flag, `wait`, which will check
 every two seconds on the status of the request and return the URL once
 the job is complete.
+
+The command accepts an optional boolean flag, `open`, which will open
+the screenshots URL in your default browser.
