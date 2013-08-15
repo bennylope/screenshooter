@@ -23,7 +23,8 @@ of your profile.
 
 Next you'll need a browser configuration file. This will be used to
 specify which browser versions under which operating systems to take
-screenshots. You can start with the sample shipped with this project.
+screenshots. You can start with the sample included in this project,
+`sample_browsers.yaml`.
 
 ## Using
 
