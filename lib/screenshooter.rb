@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'thor'
 require 'yaml'
+require 'launchy'
 require 'screenshot'
 require "screenshooter/version"
 
@@ -22,7 +23,8 @@ module ScreenShooter
 
     desc "shoot", "take a screenshot"
     method_option :url, :aliases => "-u", :desc => "URL of page to screenshot"
-    method_option :wait, :type => :boolean, :aliases => "-w", :default => false, :desc => "Wait for screenshots to be rendered"
+    method_option :wait, :type => :boolean, :aliases => "-w", :default => false, :desc => "Wait for screenshots to be rendered?"
+    method_option :open, :type => :boolean, :aliases => "-o", :default => false, :desc => "Open the URL in the browser?"
     def shoot(file="browsers.yaml")
       username, password = get_credentials
       client = Screenshot::Client.new({"username" => username, "password" => password})
@@ -43,7 +45,13 @@ module ScreenShooter
         print "."
         sleep 2
       end while options["wait"] and shot_status != "done"
-      puts "\nhttp://www.browserstack.com/screenshots/#{request_id}"
+
+      screenshots_url = "http://www.browserstack.com/screenshots/#{request_id}"
+      if options["open"]
+        Launchy.open(screenshots_url)
+      else
+        puts "\n#{screenshots_url}"
+      end
     end
   end
 end

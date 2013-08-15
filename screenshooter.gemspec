@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "thor"
   s.add_runtime_dependency "browserstack-screenshot"
+  s.add_runtime_dependency "launchy"
 end
