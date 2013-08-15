@@ -29,7 +29,7 @@ screenshots. You can start with the sample shipped with this project.
 
 Use is pretty straightforward:
 
-    ruby screenshots.rb path_to/browsers.yaml
+    screenshooter path_to/browsers.yaml
 
 Once the request is successfully made, the program will return the URL
 of the screenshot collection.
@@ -39,7 +39,7 @@ be helpful if you're always taking screenshots of the same URL, but
 chances are you'll probably want to specify this each time you run the
 command.
 
-    ruby screenshots.rb path_to/browsers.yaml -u http://www.github.com
+    screenshooter path_to/browsers.yaml -u http://www.github.com
 
 The command accepts an optional boolean flag, `wait`, which will check
 every two seconds on the status of the request and return the URL once
