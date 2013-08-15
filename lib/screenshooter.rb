@@ -2,7 +2,7 @@ require 'rubygems'
 require 'thor'
 require 'yaml'
 require 'screenshot'
-require "shotpooter/version"
+require "screenshooter/version"
 
 # Should get the values from the .browserstack file
 def get_credentials
@@ -10,7 +10,7 @@ def get_credentials
   keypair.strip.split(":")
 end
 
-module ShotPooter
+module ScreenShooter
 
   class ShotMaster < Thor
     desc "list", "list systems"
