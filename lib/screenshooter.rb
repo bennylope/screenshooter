@@ -52,7 +52,7 @@ module ScreenShooter
       if options["open"]
         Launchy.open(screenshots_url)
       else
-        puts "\n#{screenshots_url}"
+        puts screenshots_url
       end
     end
   end
