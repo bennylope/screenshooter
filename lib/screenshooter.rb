@@ -8,8 +8,12 @@ require "screenshooter/version"
 
 # Should get the values from the .browserstack file
 def get_credentials
-  keypair = File.open("#{Dir.home}/.browserstack", &:readline)
-  keypair.strip.split(":")
+  if ENV['BROWSERSTACK_USERNAME'] and ENV['BROWSERSTACK_TOKEN']
+    [ENV['BROWSERSTACK_USERNAME'], ENV['BROWSERSTACK_TOKEN']]
+  else
+    keypair = File.open("#{Dir.home}/.browserstack", &:readline)
+    keypair.strip.split(":")
+  end
 end
 
 module ScreenShooter

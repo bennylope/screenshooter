@@ -12,8 +12,16 @@ Or clone the repository and run
 
 ## Configuration
 
-Set up your credentials in the `.browserstack` file in your home
-directory. It should look like this:
+You will need to provide username and authentication token credentials
+to use the service. You can do so with environment variables or using a
+file.
+
+To use environment variables (suitable for a CI environment) set
+`BROWSERSTACK_USERNAME` and `BROWSERSTACK_TOKEN`, respectively. If these
+are missing then ScreenShooter will look for a credentials file.
+
+You should set up your credentials in the `.browserstack` file in your
+home directory. It should look like this:
 
     username:auth_token
     
