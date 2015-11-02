@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'thor'
 require 'yaml'
+require 'json'
 require 'launchy'
 require 'progress_bar'
 require 'screenshot'
@@ -33,7 +34,12 @@ module ScreenShooter
     def shoot(file="browsers.yaml")
       username, password = get_credentials
       client = Screenshot::Client.new({"username" => username, "password" => password})
-      params = YAML::load( File.open( file ) )
+      file_extension = file.split('.')[-1]
+      if file_extension == 'yaml'
+        params = YAML::load( File.open( file ) )
+      elsif file_extension == 'json'
+        params = JSON.parse( File.read(file) )
+      end
       if options.has_key? "url"
         params["url"] = options["url"]
       end
