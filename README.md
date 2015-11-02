@@ -32,7 +32,7 @@ of your profile.
 Next you'll need a browser configuration file. This will be used to
 specify which browser versions under which operating systems to take
 screenshots. You can start with the sample included in this project,
-`sample_browsers.yaml`.
+`sample_browsers.yaml` or `sample_browsers.json`.
 
 ## Using
 
@@ -42,6 +42,10 @@ screenshot gallery URL.
 General use is pretty straightforward:
 
     screenshooter shoot path_to/browsers.yaml
+
+If you are using a json file, then:
+
+    screenshooter shoot path_to/browsers.json
 
 Once the request is successfully made, the program will return the URL
 of the screenshot collection. The URL output can be piped to another
