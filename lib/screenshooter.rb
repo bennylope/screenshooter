@@ -31,6 +31,7 @@ module ScreenShooter
     method_option :url, :aliases => "-u", :desc => "URL of page to screenshot"
     method_option :wait, :type => :boolean, :aliases => "-w", :default => false, :desc => "Wait for screenshots to be rendered?"
     method_option :open, :type => :boolean, :aliases => "-o", :default => false, :desc => "Open the URL in the browser?"
+    method_option :quiet, :type => :boolean, :aliases => "-q", :default => false, :desc => "Don't show progress bar"
     def shoot(file="browsers.yaml")
       username, password = get_credentials
       client = Screenshot::Client.new({"username" => username, "password" => password})
@@ -51,11 +52,11 @@ module ScreenShooter
       end
 
       shot_status = "pending"
-      bar = ProgressBar.new(:elapsed)
+      bar = ProgressBar.new(:elapsed) unless options[:quiet]
       begin
         shot_status = client.screenshots_status request_id
         sleep 2.5
-        bar.increment!
+        bar.increment! unless options[:quiet]
       end while options["wait"] and shot_status != "done"
 
       screenshots_url = "http://www.browserstack.com/screenshots/#{request_id}"

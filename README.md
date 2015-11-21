@@ -83,6 +83,15 @@ the job is complete.
     screenshooter shoot path_to/browsers.yaml -u http://www.github.com -w
     screenshooter shoot path_to/browsers.yaml -u http://www.github.com --wait
 
+### Silence Progress bar
+
+The command accepts an optional boolean flag, 'quiet', which will not
+print the progress bar, while using the 'wait' option. The screenshot
+URL will be printed once the job is complete
+
+    screenshooter shoot path_to/browsers.yaml -u http://www.github.com --wait -q
+    screenshooter shoot path_to/browsers.yaml -u http://www.github.com --wait -quiet
+
 ### Open the screenshots URL
 
 The command accepts an optional boolean flag, `open`, which will open
